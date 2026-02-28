@@ -1,71 +1,92 @@
-## Project info
+# DIGIT RECOGNITION SYSTEM
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+---
 
-## How can I edit this code?
+## About
 
-There are several ways of editing your application.
+This project is a modern web application built with **Vite, TypeScript, React, Tailwind CSS, and shadcn-ui**.  
+It demonstrates a clean and responsive UI with dynamic interactions and is structured for easy development and customization.  
+This repository contains everything you need to run and explore the project locally or deploy it online.
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## Getting Started
 
-Changes made via Lovable will be committed automatically to this repo.
+You can run this project on your local machine by following these steps:
 
-**Use your preferred IDE**
+1. **Clone the repository**  
+   First, get a copy of the project on your computer:
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+   ```bash
+   git clone <https://github.com/asuCON/Digit-Recognition-system>
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+2. **Open the project folder**
+   Move into the project directory:
 
-Follow these steps:
+   ```bash
+   cd <Digit Recognition>
+   ```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+3. **Install dependencies**
+   Make sure you have **Node.js** and **npm** installed. Then, install all the required packages:
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+   ```bash
+   npm install
+   ```
 
-# Step 3: Install the necessary dependencies.
-npm i
+4. **Start the development server**
+   Run the project locally. The server supports live-reloading, so any changes you make will appear instantly in your browser:
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+   ```bash
+   npm run dev
+   ```
+
+Now the application should be running locally, and you can explore and modify it freely.
+
+---
+
+## Project Structure
+
+Here’s a quick overview of the project organization:
+
+* **src/** – All frontend source code.
+* **components/** – Reusable React components for UI elements.
+* **pages/** – Main application pages.
+* **styles/** – Tailwind CSS and custom styling.
+* **public/** – Static files like images and icons.
+
+This structure helps keep the project organized and makes it easier to maintain and expand.
+
+---
+
+## Deployment
+
+To deploy this project on a hosting platform like **Vercel** or **Netlify**:
+
+1. Build the project for production:
+
+   ```bash
+   npm run build
+   ```
+
+2. Upload the `dist/` folder to your hosting service.
+   Your project will now be live and accessible online.
+
+---
+
+## Contributing
+
+Contributions are welcome! You can:
+
+* Open issues if you find bugs or have suggestions.
+* Submit pull requests to add features or improvements.
+* Make sure your code is clean and readable, following best practices.
+
+---
+
+## Author
+
+**Sudip Rasaili**
+Bachelor’s Student | Aspiring Software Developer
+
 ```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
