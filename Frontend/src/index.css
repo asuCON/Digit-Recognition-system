@@ -1,0 +1,245 @@
+@import url('@fontsource/space-grotesk/400.css');
+@import url('@fontsource/space-grotesk/500.css');
+@import url('@fontsource/space-grotesk/600.css');
+@import url('@fontsource/space-grotesk/700.css');
+@import url('@fontsource/fira-code/400.css');
+@import url('@fontsource/fira-code/600.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 225 25% 95%;
+    --foreground: 225 30% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 225 30% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 225 30% 12%;
+
+    --primary: 250 85% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 195 90% 50%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 225 20% 90%;
+    --muted-foreground: 225 12% 45%;
+
+    --accent: 330 80% 58%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 225 15% 87%;
+    --input: 225 15% 87%;
+    --ring: 250 85% 60%;
+
+    --radius: 1rem;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 225 15% 40%;
+    --sidebar-primary: 250 85% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 250 60% 96%;
+    --sidebar-accent-foreground: 250 85% 60%;
+    --sidebar-border: 225 15% 90%;
+    --sidebar-ring: 250 85% 60%;
+
+    /* Special tokens */
+    --neon-purple: 250 85% 60%;
+    --neon-cyan: 195 90% 50%;
+    --neon-pink: 330 80% 58%;
+    --neon-blue: 220 90% 56%;
+    --canvas-bg: 230 20% 8%;
+    --canvas-grid: 250 50% 30%;
+    --gradient-start: 225 30% 96%;
+    --gradient-mid: 240 25% 94%;
+    --gradient-end: 250 20% 92%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    min-height: 100vh;
+    font-family: 'Space Grotesk', sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* Animated mesh gradient background */
+.app-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    135deg,
+    hsl(225 30% 96%) 0%,
+    hsl(240 30% 95%) 25%,
+    hsl(250 25% 93%) 50%,
+    hsl(225 25% 96%) 75%,
+    hsl(195 20% 95%) 100%
+  );
+  background-size: 400% 400%;
+  animation: mesh-flow 20s ease-in-out infinite;
+}
+
+.app-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 50% at 15% 20%, hsl(250 85% 60% / 0.06) 0%, transparent 60%),
+              radial-gradient(ellipse 50% 40% at 85% 30%, hsl(195 90% 50% / 0.05) 0%, transparent 60%),
+              radial-gradient(ellipse 70% 50% at 50% 85%, hsl(330 80% 58% / 0.04) 0%, transparent 60%);
+  animation: orbs-drift 15s ease-in-out infinite alternate;
+}
+
+@keyframes mesh-flow {
+  0%, 100% { background-position: 0% 50%; }
+  25% { background-position: 100% 0%; }
+  50% { background-position: 100% 100%; }
+  75% { background-position: 0% 100%; }
+}
+
+@keyframes orbs-drift {
+  0% { opacity: 0.6; transform: scale(1) rotate(0deg); }
+  100% { opacity: 1; transform: scale(1.05) rotate(1deg); }
+}
+
+@layer utilities {
+  .font-mono-digit {
+    font-family: 'Fira Code', monospace;
+  }
+
+  .glass-panel {
+    background: hsl(0 0% 100% / 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid hsl(225 15% 87% / 0.8);
+    border-radius: var(--radius);
+    box-shadow: 0 4px 24px hsl(225 30% 12% / 0.04),
+                0 1px 3px hsl(225 30% 12% / 0.03),
+                inset 0 1px 0 hsl(0 0% 100% / 0.8);
+  }
+
+  .glass-panel-hover {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .glass-panel-hover:hover {
+    border-color: hsl(250 85% 60% / 0.2);
+    box-shadow: 0 8px 40px hsl(250 85% 60% / 0.08),
+                0 2px 8px hsl(225 30% 12% / 0.04),
+                inset 0 1px 0 hsl(0 0% 100% / 0.9);
+    transform: translateY(-2px);
+  }
+
+  .glow-text {
+    text-shadow: 0 0 30px hsl(250 85% 60% / 0.4), 0 0 80px hsl(250 85% 60% / 0.15);
+  }
+
+  .glow-pink {
+    text-shadow: 0 0 30px hsl(330 80% 58% / 0.4), 0 0 80px hsl(330 80% 58% / 0.15);
+  }
+
+  .glow-border {
+    box-shadow: 0 0 0 1px hsl(250 85% 60% / 0.15),
+                0 0 20px hsl(250 85% 60% / 0.06);
+  }
+
+  .neon-border {
+    border: 1px solid hsl(250 85% 60% / 0.2);
+    box-shadow: 0 0 12px hsl(250 85% 60% / 0.06);
+  }
+
+  .neon-border-active {
+    border: 1px solid hsl(250 85% 60% / 0.4);
+    box-shadow: 0 0 20px hsl(250 85% 60% / 0.1),
+                0 0 40px hsl(250 85% 60% / 0.03);
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300;
+  }
+  .hover-lift:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px hsl(250 85% 60% / 0.1);
+  }
+
+  .gradient-bar {
+    background: linear-gradient(90deg, hsl(250 85% 60%) 0%, hsl(195 90% 50%) 100%);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, hsl(250 85% 60%), hsl(195 90% 50%), hsl(330 80% 58%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-text-warm {
+    background: linear-gradient(135deg, hsl(330 80% 58%), hsl(250 85% 60%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .empty-state {
+    @apply flex flex-col items-center justify-center py-12 text-muted-foreground;
+  }
+
+  /* Canvas holographic border */
+  .canvas-holo {
+    position: relative;
+  }
+  .canvas-holo::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: calc(var(--radius) + 3px);
+    background: linear-gradient(135deg, hsl(250 85% 60% / 0.5), hsl(195 90% 50% / 0.3), hsl(330 80% 58% / 0.4), hsl(250 85% 60% / 0.5));
+    background-size: 300% 300%;
+    animation: holo-shift 5s ease-in-out infinite;
+    z-index: -1;
+    opacity: 0.4;
+    transition: opacity 0.4s;
+  }
+  .canvas-holo.drawing::before {
+    opacity: 0.9;
+    animation-duration: 1.5s;
+  }
+
+  @keyframes holo-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  /* Confidence pulse */
+  .confidence-pulse {
+    animation: conf-pulse 2.5s ease-in-out infinite;
+  }
+  @keyframes conf-pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.8; }
+  }
+
+  /* Scrollbar */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: hsl(250 85% 60% / 0.15);
+    border-radius: 2px;
+  }
+}

@@ -1,0 +1,23 @@
+# Frontend dependencies & build output (do not commit)
+Frontend/node_modules/
+Frontend/dist/
+Frontend/.vite/
+
+# Python caches / environments
+Backend/__pycache__/
+Backend/**/__pycache__/
+Backend/.pytest_cache/
+Backend/.venv/
+Backend/venv/
+*.pyc
+
+# Environment / secrets
+*.env
+*.env.*
+.env
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*.log
+
